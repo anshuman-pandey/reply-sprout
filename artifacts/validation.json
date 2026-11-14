@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-11-14T16:41:03.036001+00:00",
+  "status": "local candidate, not publicly released",
+  "unit_tests": 11,
+  "browser_checks": [
+    "create/edit/delete",
+    "variables and literal markup",
+    "clipboard copy",
+    "search",
+    "reload persistence",
+    "JSON export and restore",
+    "invalid and conflicting imports rejected",
+    "cross-tab stale-write protection preserves draft",
+    "corrupt saved-data detection",
+    "raw recovery export and validated restore",
+    "zero external network requests",
+    "zero browser script errors"
+  ],
+  "screenshots": [
+    "studio.png",
+    "mobile.png"
+  ],
+  "unverified": [
+    "public repository",
+    "hosted HTTPS static deployment",
+    "Firefox and Safari",
+    "physical mobile input"
+  ],
+  "competitor_reference": "https://textexpander.com/learn/using/snippets/snippet-fill-ins",
+  "name_check": "Quoted GitHub snippet-cabinet search returned no results; broader name review pending",
+  "next_action": "Publish independent repo when accessible, verify hosted HTTPS deployment, then execute support-pack walkthrough distribution."
+}

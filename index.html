@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Snippet Cabinet — good words, ready again</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./">Snippet Cabinet</a><span>YOUR WORDS, READY AGAIN</span
+      ><button id="export" class="quiet">Export backup</button>
+    </header>
+    <main>
+      <section class="intro">
+        <p class="eyebrow">LESS RETYPING. MORE INTENTION.</p>
+        <h1>Keep the words<br />you use well.</h1>
+        <p>
+          Save a useful reply, fill in the details, and copy it wherever you
+          work.
+        </p>
+      </section>
+      <p id="status" role="status" aria-live="polite">
+        Your library stays in this browser. Export a backup to keep it safe.
+      </p>
+      <div class="layout">
+        <aside class="panel">
+          <div class="actions">
+            <h2>Your library</h2>
+            <button id="new">New snippet</button>
+          </div>
+          <label
+            >Search<input
+              id="search"
+              type="search"
+              placeholder="Title, text, or shortcut · /"
+              autocomplete="off" /></label
+          ><label
+            >Collection<select id="collection">
+              <option value="">All collections</option>
+            </select></label
+          >
+          <p id="count" class="small"></p>
+          <ul id="list"></ul>
+          <div id="empty">
+            <p>Start with a reply you send often.</p>
+            <button id="examples" class="quiet">Add example snippets</button>
+          </div>
+          <details>
+            <summary>Import & recovery</summary>
+            <label
+              >Import mode<select id="mode">
+                <option value="merge">Merge into library</option>
+                <option value="replace">Replace whole library</option>
+              </select></label
+            ><label
+              >JSON backup<input
+                id="import"
+                type="file"
+                accept="application/json,.json" /></label
+            ><button id="reload" class="quiet">Reload library</button
+            ><button id="raw" class="quiet">Export raw recovery data</button>
+            <p class="small">
+              Import checks the entire file before changing anything. Export
+              before replacing. Backups contain your snippet text.
+            </p>
+          </details>
+        </aside>
+        <section class="panel editor">
+          <form id="editor">
+            <div class="actions">
+              <h2 id="editor-title">New snippet</h2>
+              <button id="save" type="submit">Save snippet</button>
+            </div>
+            <div class="fields">
+              <label
+                >Title<input
+                  id="title"
+                  maxlength="120"
+                  required
+                  placeholder="A helpful follow-up" /></label
+              ><label
+                >Shortcut label<input
+                  id="shortcut"
+                  maxlength="40"
+                  placeholder=";followup" /></label
+              ><label
+                >Collection name<input
+                  id="category"
+                  maxlength="60"
+                  placeholder="Support"
+              /></label>
+            </div>
+            <label
+              >Snippet text<textarea
+                id="body"
+                rows="9"
+                maxlength="20000"
+                required
+                placeholder="Hi {{first_name}},"
+              ></textarea>
+            </label>
+            <p class="small">
+              Use {{first_name}} for a fill-in field. Shortcut labels help you
+              search; they do not expand automatically in other apps.
+            </p>
+            <div class="actions">
+              <button id="delete" type="button" class="danger" hidden>
+                Delete snippet</button
+              ><span id="dirty" class="small">No unsaved changes</span>
+            </div>
+          </form>
+          <section class="compose">
+            <p class="eyebrow">FILL IN & COPY</p>
+            <div id="variables"></div>
+            <label
+              >Ready-to-use text<textarea
+                id="output"
+                rows="7"
+                readonly
+                placeholder="Your completed text appears here."
+              ></textarea>
+            </label>
+            <div class="actions">
+              <button id="copy" disabled>Copy text</button
+              ><span id="preview-status" class="small"
+                >Write a snippet to get started.</span
+              >
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <footer>
+      No accounts. No tracking. No uploads.<span
+        >Keep private information out of shared backups.</span
+      >
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

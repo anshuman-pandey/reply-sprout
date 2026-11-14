@@ -1,0 +1,258 @@
+:root {
+  font:
+    16px/1.6 system-ui,
+    sans-serif;
+  background: #f5f2e9;
+  color: #343b31;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 23px 5vw;
+  border-bottom: 1px solid #dbddd0;
+}
+header a {
+  font-size: 23px;
+  font-weight: 750;
+  text-decoration: none;
+  color: inherit;
+}
+header span,
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: #6d785d;
+}
+header button {
+  margin-left: auto;
+}
+main {
+  max-width: 1280px;
+  margin: auto;
+  padding: 35px 28px 60px;
+}
+.intro h1 {
+  font:
+    normal clamp(40px, 5vw, 64px) / 1.1 Georgia,
+    serif;
+  letter-spacing: -0.03em;
+  margin: 18px 0;
+}
+.intro p {
+  color: #67725f;
+}
+.intro {
+  margin-bottom: 24px;
+}
+h2 {
+  font:
+    normal 25px/1.2 Georgia,
+    serif;
+  margin: 0;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) minmax(0, 2fr);
+  gap: 25px;
+}
+.panel {
+  border: 1px solid #d9decd;
+  background: #fffef8;
+  border-radius: 10px;
+  padding: 23px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+}
+.actions h2 {
+  margin-right: auto;
+}
+button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #435934;
+  color: #fff;
+}
+.quiet {
+  background: #e9eddf;
+  color: #435934;
+}
+.danger {
+  background: #f3e3da;
+  color: #793d32;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  margin-bottom: 15px;
+}
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  font-size: 14px;
+  color: inherit;
+  background: #fff;
+  border: 1px solid #bfc9b5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 6px;
+}
+textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+input[type="file"] {
+  font-size: 12px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+}
+.small {
+  font-size: 12px;
+  color: #6a755f;
+}
+.compose {
+  border-top: 1px solid #dce1d2;
+  padding-top: 20px;
+  margin-top: 22px;
+}
+#variables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 15px;
+}
+#output {
+  background: #f3f5ec;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  max-height: 480px;
+  overflow: auto;
+}
+li button {
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  background: #f0f2e8;
+  color: #3d4c34;
+  border: 1px solid transparent;
+}
+li button[aria-current="true"] {
+  border-color: #536b42;
+  background: #e5ecd9;
+}
+li strong,
+li small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+li small {
+  font-weight: 400;
+  color: #6a755f;
+}
+details {
+  border-top: 1px solid #dde2d2;
+  padding-top: 15px;
+  margin-top: 24px;
+}
+summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  margin-bottom: 15px;
+}
+details button {
+  margin: 5px 0;
+}
+#status {
+  padding: 12px 16px;
+  background: #e9eddf;
+  border-left: 3px solid #a0aa72;
+  font-size: 14px;
+  min-height: 47px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 24px 5vw;
+  border-top: 1px solid #dbddd0;
+  font-size: 12px;
+  color: #6a755f;
+}
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #b5a54a;
+  outline-offset: 3px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .fields {
+    grid-template-columns: 1fr;
+  }
+  header span {
+    display: none;
+  }
+  header {
+    padding: 18px;
+    gap: 12px;
+  }
+  header a {
+    font-size: 19px;
+  }
+  main {
+    padding: 25px 16px;
+  }
+  .panel {
+    padding: 20px;
+  }
+  #variables {
+    grid-template-columns: 1fr;
+  }
+  footer {
+    display: block;
+  }
+  ul {
+    max-height: 240px;
+  }
+}
+
+@media (max-width: 800px) { footer span { display: block; } }

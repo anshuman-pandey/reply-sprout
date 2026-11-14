@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "snippets": [
+    {
+      "id": "support-reproduction-v1",
+      "title": "Ask for a minimal reproduction",
+      "shortcut": ";repro",
+      "category": "Support",
+      "body": "Hi {{first_name}},\n\nCould you share the steps to reproduce {{issue}}, the result you expected, and the result you saw? Please remove passwords, tokens and private customer details from any examples.\n\nThanks,\n{{your_name}}"
+    },
+    {
+      "id": "support-resolution-v1",
+      "title": "Confirm a resolution",
+      "shortcut": ";resolved",
+      "category": "Support",
+      "body": "Hi {{first_name}},\n\nWe changed {{change}} to address {{issue}}. You can check it by {{verification_step}}. Please let us know if the issue remains.\n\nThanks,\n{{your_name}}"
+    }
+  ]
+}
