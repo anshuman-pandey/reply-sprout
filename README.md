@@ -1,6 +1,6 @@
 <div align="center">
 
-![Snippet Cabinet — Keep your best words ready.](docs/assets/banner.svg)
+![Reply Sprout — Keep your best words ready.](docs/assets/banner.svg)
 
 ### Open-source alternative to TextExpander for reusable text snippets and templates
 
@@ -14,7 +14,7 @@ Fill the details. Copy. Get on with your day.
 
 > Local candidate. No system-wide automatic text expansion; hosted HTTPS acceptance remains pending.
 
-![Snippet Cabinet application workflow](artifacts/studio.png)
+![Reply Sprout application workflow](artifacts/studio.png)
 
 *Actual application screenshot showing a saved template, fill-in field and copy workflow.*
 
@@ -68,7 +68,7 @@ npm run test:browser
 
 ## Compared with TextExpander
 
-This addresses reusable plain-text templates and fill-in variables. It provides browser-local collections, search, clipboard copy and portable JSON backups. It does not provide native text expansion, automatic insertion into other apps, team sharing or cloud sync. No feature-parity, pricing or performance claim is made. Verified vendor reference (November 14, 2026): https://textexpander.com/learn/using/snippets/snippet-fill-ins documents fill-in fields, including repeated values with the same field name. Snippet Cabinet supports basic text fields only; the vendor also documents richer field types. Pricing and the full vendor feature inventory have not been audited.
+This addresses reusable plain-text templates and fill-in variables. It provides browser-local collections, search, clipboard copy and portable JSON backups. It does not provide native text expansion, automatic insertion into other apps, team sharing or cloud sync. No feature-parity, pricing or performance claim is made. Verified vendor reference (November 14, 2026): https://textexpander.com/learn/using/snippets/snippet-fill-ins documents fill-in fields, including repeated values with the same field name. Reply Sprout supports basic text fields only; the vendor also documents richer field types. Pricing and the full vendor feature inventory have not been audited.
 
 ## Distribution path
 
