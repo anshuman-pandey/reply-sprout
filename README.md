@@ -1,4 +1,26 @@
-# Snippet Cabinet
+<div align="center">
+
+![Snippet Cabinet — Keep your best words ready.](docs/assets/banner.svg)
+
+### Open-source alternative to TextExpander for reusable text snippets and templates
+
+Fill the details. Copy. Get on with your day.
+
+**MIT licensed** · **Own your data** · **No AI service required**
+
+[**Start →**](#start) · [Workflow](#the-workflow) · [MIT license](LICENSE)
+
+</div>
+
+> Local candidate. No system-wide automatic text expansion; hosted HTTPS acceptance remains pending.
+
+![Snippet Cabinet application workflow](artifacts/studio.png)
+
+*Actual application screenshot showing a saved template, fill-in field and copy workflow.*
+
+## The workflow
+
+**Save a useful reply → fill variables → copy the result → back up your library.**
 
 A local-first library for the replies and templates you reuse. Search your snippets, fill in variables, copy the result and export your library as JSON. MIT licensed. No account, backend, AI service or analytics. Independent product repository; this package is a local candidate awaiting public publication.
 
