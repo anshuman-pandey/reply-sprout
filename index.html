@@ -12,91 +12,91 @@
   </head>
   <body>
     <header>
-      <a href="./">Reply Sprout</a><span>YOUR WORDS, READY AGAIN</span
-      ><button id="export" class="quiet">Export backup</button>
+      <a href="./">Reply Sprout</a><span><span data-i18n="YOUR WORDS, READY AGAIN">YOUR WORDS, READY AGAIN</span></span
+      ><button id="export" class="quiet"><span data-i18n="Export backup">Export backup</span></button>
     </header>
     <main>
       <section class="intro">
-        <p class="eyebrow">LESS RETYPING. MORE INTENTION.</p>
-        <h1>Keep the words<br />you use well.</h1>
-        <p>
+        <p class="eyebrow"><span data-i18n="LESS RETYPING. MORE INTENTION.">LESS RETYPING. MORE INTENTION.</span></p>
+        <h1><span data-i18n="Keep the words">Keep the words</span><br /><span data-i18n="you use well.">you use well.</span></h1>
+        <p><span data-i18n="Save a useful reply, fill in the details, and copy it wherever you work.">
           Save a useful reply, fill in the details, and copy it wherever you
           work.
-        </p>
+        </span></p>
       </section>
-      <p id="status" role="status" aria-live="polite">
+      <p id="status" role="status" aria-live="polite"><span data-i18n="Your library stays in this browser. Export a backup to keep it safe.">
         Your library stays in this browser. Export a backup to keep it safe.
-      </p>
+      </span></p>
       <div class="layout">
         <aside class="panel">
           <div class="actions">
-            <h2>Your library</h2>
-            <button id="new">New snippet</button>
+            <h2><span data-i18n="Your library">Your library</span></h2>
+            <button id="new"><span data-i18n="New snippet">New snippet</span></button>
           </div>
           <label
-            >Search<input
+            ><span data-i18n="Search">Search</span><input
               id="search"
               type="search"
-              placeholder="Title, text, or shortcut · /"
+              placeholder="Title, text, or shortcut · /" data-i18n-placeholder="Title, text, or shortcut · /"
               autocomplete="off" /></label
           ><label
-            >Collection<select id="collection">
-              <option value="">All collections</option>
+            ><span data-i18n="Collection">Collection</span><select id="collection">
+              <option value="" data-i18n="All collections">All collections</option>
             </select></label
           >
           <p id="count" class="small"></p>
           <ul id="list"></ul>
           <div id="empty">
-            <p>Start with a reply you send often.</p>
-            <button id="examples" class="quiet">Add example snippets</button>
+            <p><span data-i18n="Start with a reply you send often.">Start with a reply you send often.</span></p>
+            <button id="examples" class="quiet"><span data-i18n="Add example snippets">Add example snippets</span></button>
           </div>
           <details>
-            <summary>Import & recovery</summary>
+            <summary><span data-i18n="Import &amp; recovery">Import & recovery</span></summary>
             <label
-              >Import mode<select id="mode">
-                <option value="merge">Merge into library</option>
-                <option value="replace">Replace whole library</option>
+              ><span data-i18n="Import mode">Import mode</span><select id="mode">
+                <option value="merge" data-i18n="Merge into library">Merge into library</option>
+                <option value="replace" data-i18n="Replace whole library">Replace whole library</option>
               </select></label
             ><label
-              >JSON backup<input
+              ><span data-i18n="JSON backup">JSON backup</span><input
                 id="import"
                 type="file"
                 accept="application/json,.json" /></label
-            ><button id="reload" class="quiet">Reload library</button
-            ><button id="raw" class="quiet">Export raw recovery data</button>
-            <p class="small">
+            ><button id="reload" class="quiet"><span data-i18n="Reload library">Reload library</span></button
+            ><button id="raw" class="quiet"><span data-i18n="Export raw recovery data">Export raw recovery data</span></button>
+            <p class="small"><span data-i18n="Import checks the entire file before changing anything. Export before replacing. Backups contain your snippet text.">
               Import checks the entire file before changing anything. Export
               before replacing. Backups contain your snippet text.
-            </p>
+            </span></p>
           </details>
         </aside>
         <section class="panel editor">
           <form id="editor">
             <div class="actions">
-              <h2 id="editor-title">New snippet</h2>
-              <button id="save" type="submit">Save snippet</button>
+              <h2 id="editor-title"><span data-i18n="New snippet">New snippet</span></h2>
+              <button id="save" type="submit"><span data-i18n="Save snippet">Save snippet</span></button>
             </div>
             <div class="fields">
               <label
-                >Title<input
+                ><span data-i18n="Title">Title</span><input
                   id="title"
                   maxlength="120"
                   required
-                  placeholder="A helpful follow-up" /></label
+                  placeholder="A helpful follow-up" data-i18n-placeholder="A helpful follow-up" /></label
               ><label
-                >Shortcut label<input
+                ><span data-i18n="Shortcut label">Shortcut label</span><input
                   id="shortcut"
                   maxlength="40"
                   placeholder=";followup" /></label
               ><label
-                >Collection name<input
+                ><span data-i18n="Collection name">Collection name</span><input
                   id="category"
                   maxlength="60"
-                  placeholder="Support"
+                  placeholder="Support" data-i18n-placeholder="Support"
               /></label>
             </div>
             <label
-              >Snippet text<textarea
+              ><span data-i18n="Snippet text">Snippet text</span><textarea
                 id="body"
                 rows="9"
                 maxlength="20000"
@@ -104,42 +104,42 @@
                 placeholder="Hi {{first_name}},"
               ></textarea>
             </label>
-            <p class="small">
+            <p class="small"><span data-i18n="Use {{first_name}} for a fill-in field. Shortcut labels help you search; they do not expand automatically in other apps.">
               Use {{first_name}} for a fill-in field. Shortcut labels help you
               search; they do not expand automatically in other apps.
-            </p>
+            </span></p>
             <div class="actions">
-              <button id="delete" type="button" class="danger" hidden>
-                Delete snippet</button
-              ><span id="dirty" class="small">No unsaved changes</span>
+              <button id="delete" type="button" class="danger" hidden><span data-i18n="Delete snippet">
+                Delete snippet</span></button
+              ><span id="dirty" class="small"><span data-i18n="No unsaved changes">No unsaved changes</span></span>
             </div>
           </form>
           <section class="compose">
-            <p class="eyebrow">FILL IN & COPY</p>
+            <p class="eyebrow"><span data-i18n="FILL IN &amp; COPY">FILL IN & COPY</span></p>
             <div id="variables"></div>
             <label
-              >Ready-to-use text<textarea
+              ><span data-i18n="Ready-to-use text">Ready-to-use text</span><textarea
                 id="output"
                 rows="7"
                 readonly
-                placeholder="Your completed text appears here."
+                placeholder="Your completed text appears here." data-i18n-placeholder="Your completed text appears here."
               ></textarea>
             </label>
             <div class="actions">
-              <button id="copy" disabled>Copy text</button
+              <button id="copy" disabled><span data-i18n="Copy text">Copy text</span></button
               ><span id="preview-status" class="small"
-                >Write a snippet to get started.</span
+                ><span data-i18n="Write a snippet to get started.">Write a snippet to get started.</span></span
               >
             </div>
           </section>
         </section>
       </div>
     </main>
-    <footer>
-      No accounts. No tracking. No uploads.<span
-        >Keep private information out of shared backups.</span
+    <footer><span data-i18n="No accounts. No tracking. No uploads.">
+      No accounts. No tracking. No uploads.</span><span
+        ><span data-i18n="Keep private information out of shared backups.">Keep private information out of shared backups.</span></span
       >
     </footer>
-    <script type="module" src="app.js"></script>
+    <script src="messages.js"></script><script src="i18n.js"></script><script type="module" src="app.js"></script>
   </body>
 </html>

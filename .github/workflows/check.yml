@@ -26,3 +26,6 @@ jobs:
             sleep 1
           done
           npm run test:browser
+      - run: node --test i18n.catalog.test.cjs
+      - name: Interface languages (isolated fixtures)
+        run: npm run test:i18n

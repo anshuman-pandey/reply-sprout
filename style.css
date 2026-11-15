@@ -256,3 +256,8 @@ summary:focus-visible {
 }
 
 @media (max-width: 800px) { footer span { display: block; } }
+
+/* Locale control: wraps at narrow widths and never hides the native focus ring. */
+.language-picker{display:flex;align-items:center;gap:.5rem;font-size:.8rem;flex-wrap:wrap;margin:.5rem 0}.language-picker select{width:auto;max-width:100%;min-width:8rem;margin:0;padding:.45rem}header{flex-wrap:wrap}button,a.button{overflow-wrap:anywhere}input,select,textarea{max-width:100%}
+
+header .language-picker span{display:inline;font-size:.8rem;letter-spacing:normal;color:inherit}.language-picker select{font:inherit;color:inherit;background:#fff;border:1px solid #a9b9b4;border-radius:.5rem;min-height:2.25rem}
