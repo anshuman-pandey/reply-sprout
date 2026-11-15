@@ -15,7 +15,7 @@ let store = null,
   busy = false,
   brokenRaw = null;
 function say(text) {
-  $("status").textContent = text;
+  I18n.text($("status"), text);
 }
 function freeze(value) {
   busy = value;
@@ -37,7 +37,7 @@ function freeze(value) {
 }
 function mark(value) {
   dirty = value;
-  $("dirty").textContent = dirty ? "Unsaved changes" : "No unsaved changes";
+  I18n.text($("dirty"), dirty ? "Unsaved changes" : "No unsaved changes");
 }
 function draft() {
   return snippet({
@@ -50,7 +50,7 @@ function draft() {
 }
 function renderList() {
   const collection = $("collection").value;
-  $("collection").replaceChildren(new Option("All collections", ""));
+  $("collection").replaceChildren(I18n.option("All collections", ""));
   for (const category of [
     ...new Set((store?.snippets || []).map((s) => s.category).filter(Boolean)),
   ].sort())
@@ -63,9 +63,7 @@ function renderList() {
     $("collection").value,
   );
   $("list").replaceChildren();
-  $("count").textContent = store
-    ? `${items.length} of ${store.snippets.length} snippets`
-    : "Library unavailable";
+  I18n.text($("count"), store ? "{0} of {1} snippets" : "Library unavailable", {0:items.length, 1:store?.snippets.length});
   $("empty").hidden = !store || store.snippets.length > 0;
   for (const item of items) {
     const li = document.createElement("li"),
@@ -77,9 +75,10 @@ function renderList() {
     title.textContent = item.title;
     meta.textContent =
       [item.shortcut, item.category].filter(Boolean).join(" · ") || "Unfiled";
+    if (!item.shortcut && !item.category) I18n.text(meta, "Unfiled");
     button.append(title, meta);
     button.onclick = () => {
-      if (!busy && (!dirty || confirm("Discard the unsaved draft?")))
+      if (!busy && (!dirty || confirm(I18n.t("Discard the unsaved draft?"))))
         open(item);
     };
     li.append(button);
@@ -90,7 +89,7 @@ function open(item) {
   selected = item?.id || null;
   for (const key of ["title", "shortcut", "category", "body"])
     $(key).value = item?.[key] || "";
-  $("editor-title").textContent = item ? "Edit snippet" : "New snippet";
+  I18n.text($("editor-title"), item ? "Edit snippet" : "New snippet");
   $("delete").hidden = !selected;
   mark(false);
   $("variables").replaceChildren();
@@ -102,7 +101,7 @@ function preview() {
     $('variables').replaceChildren();
     $('output').value = '';
     $('copy').disabled = true;
-    $('preview-status').textContent = 'Write a snippet to get started.';
+    I18n.text($('preview-status'), 'Write a snippet to get started.');
     return;
   }
   const previous = Object.fromEntries(
@@ -130,7 +129,7 @@ function preview() {
     }
     compose();
   } catch (e) {
-    $("preview-status").textContent = e.message;
+    I18n.text($("preview-status"), e.message);
   }
 }
 function compose() {
@@ -143,12 +142,11 @@ function compose() {
     );
     $("output").value = expand($("body").value, values);
     $("copy").disabled = false;
-    $("preview-status").textContent =
-      "Ready to copy. Fill-in values are not saved.";
+    I18n.text($("preview-status"), "Ready to copy. Fill-in values are not saved.");
   } catch (e) {
     $("output").value = "";
     $("copy").disabled = true;
-    $("preview-status").textContent = e.message;
+    I18n.text($("preview-status"), e.message);
   }
 }
 function load() {
@@ -164,9 +162,7 @@ function load() {
       brokenRaw = localStorage.getItem(KEY);
     } catch {}
     renderList();
-    say(
-      `Saved library could not be read: ${e.message} Export raw recovery data before replacing it with a valid backup.`,
-    );
+    I18n.text($('status'), "Saved library could not be read: {0} Export raw recovery data before replacing it with a valid backup.", {0:I18n.t(e.message)});
   }
   freeze(false);
 }
@@ -178,13 +174,13 @@ for (const key of ["title", "shortcut", "category", "body"])
 $("search").oninput = renderList;
 $("collection").onchange = renderList;
 $("new").onclick = () => {
-  if (!dirty || confirm("Discard the unsaved draft?")) {
+  if (!dirty || confirm(I18n.t("Discard the unsaved draft?"))) {
     open(null);
     $("title").focus();
   }
 };
 $("reload").onclick = () => {
-  if (!dirty || confirm("Discard the unsaved draft and reload saved data?"))
+  if (!dirty || confirm(I18n.t("Discard the unsaved draft and reload saved data?")))
     load();
 };
 $("editor").onsubmit = async (e) => {
@@ -206,7 +202,7 @@ $("editor").onsubmit = async (e) => {
     open(item);
     say("Snippet saved in this browser.");
   } catch (err) {
-    say(`Not saved: ${err.message}`);
+    I18n.text($('status'), "Not saved: {0}", {0:I18n.t(err.message)});
   } finally {
     freeze(false);
   }
@@ -217,7 +213,7 @@ $("delete").onclick = async () => {
     !selected ||
     busy ||
     !confirm(
-      "Delete this snippet? Export a backup first if you may need it again.",
+      I18n.t("Delete this snippet? Export a backup first if you may need it again."),
     )
   )
     return;
@@ -272,7 +268,7 @@ $("export").onclick = () => {
         : "Library exported. Keep this file somewhere safe.",
     );
   } catch (e) {
-    say(`Cannot export a normal backup: ${e.message} Use raw recovery export.`);
+    I18n.text($('status'), "Cannot export a normal backup: {0} Use raw recovery export.", {0:I18n.t(e.message)});
   }
 };
 $("raw").onclick = () => {
@@ -285,7 +281,7 @@ $("raw").onclick = () => {
     download(raw, "snippet-cabinet-recovery.json");
     say("Raw saved data exported without modification.");
   } catch (e) {
-    say(`Storage access failed: ${e.message}`);
+    I18n.text($('status'), "Storage access failed: {0}", {0:I18n.t(e.message)});
   }
 };
 $("import").onchange = async () => {
@@ -297,11 +293,11 @@ $("import").onchange = async () => {
     if (file.size > MAX_FILE) throw Error("Backup exceeds 2 MB.");
     const incoming = parseBackup(await file.text()),
       replace = $("mode").value === "replace";
-    if (dirty && !confirm("Discard your unsaved draft for this import?"))
+    if (dirty && !confirm(I18n.t("Discard your unsaved draft for this import?")))
       return;
     if (
       replace &&
-      !confirm("Replace the entire saved library? Export a backup first.")
+      !confirm(I18n.t("Replace the entire saved library? Export a backup first."))
     )
       return;
     if (!store) {
@@ -314,15 +310,15 @@ $("import").onchange = async () => {
       );
     }
     open(null);
-    say(`Imported library: ${store.snippets.length} snippets saved.`);
+    I18n.text($('status'), "Imported library: {0} snippets saved.", {0:store.snippets.length});
   } catch (e) {
-    say(`Import canceled: ${e.message}`);
+    I18n.text($('status'), "Import canceled: {0}", {0:I18n.t(e.message)});
   } finally {
     freeze(false);
   }
 };
 $("examples").onclick = async () => {
-  if (!store || busy || (dirty && !confirm("Discard the unsaved draft?")))
+  if (!store || busy || (dirty && !confirm(I18n.t("Discard the unsaved draft?"))))
     return;
   const examples = [
     {
