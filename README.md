@@ -12,7 +12,7 @@ Fill the details. Copy. Get on with your day.
 
 </div>
 
-> Local candidate. No system-wide automatic text expansion; hosted HTTPS acceptance remains pending.
+> Public source preview. No system-wide automatic text expansion; hosted HTTPS acceptance remains pending.
 
 ![Reply Sprout application workflow](artifacts/studio.png)
 
@@ -22,7 +22,7 @@ Fill the details. Copy. Get on with your day.
 
 **Save a useful reply → fill variables → copy the result → back up your library.**
 
-A local-first library for the replies and templates you reuse. Search your snippets, fill in variables, copy the result and export your library as JSON. MIT licensed. No account, backend, AI service or analytics. Independent product repository; this package is a local candidate awaiting public publication.
+A local-first library for the replies and templates you reuse. Search your snippets, fill in variables, copy the result and export your library as JSON. MIT licensed. No account, backend, AI service or analytics. Independent product repository; source is published, while hosted HTTPS acceptance remains pending.
 
 ## Start
 
@@ -87,3 +87,11 @@ The interface follows your browser preferences until you choose a language. Swit
 ## Current verification
 
 See the [26 November audit checkpoint](docs/AUDIT.md) for the verified repository, release links, fresh core test result and remaining deployment/browser gates. Earlier validation records remain dated evidence.
+
+## GitHub Pages deployment
+
+An administrator must first choose **GitHub Actions** under Settings → Pages. Then run **Publish static app** from Actions on `main`. The workflow runs core, translation and browser checks against the exact static package before deploying. It preserves GitHub environment protections; approval requirements still apply. This setup is prepared, but no hosted URL has been verified yet.
+
+To build the same package yourself, run `python3 scripts/package-site.py site` with a new output directory. Only the app's required HTML, CSS, JavaScript and license are included; source history, tests, screenshots and development dependencies are excluded. Serve `site` from an HTTPS static host. User libraries are stored in browsers and are never part of this package. The script refuses to overwrite an existing output directory.
+
+Moving from localhost or another hostname changes the browser storage origin. Export your JSON backup before moving, then import it at the new URL. Keep the original backup until the imported library and copy workflow are verified.

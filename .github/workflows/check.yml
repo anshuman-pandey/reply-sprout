@@ -16,9 +16,10 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npx playwright install --with-deps chromium
-      - name: Browser acceptance
+      - run: python3 scripts/package-site.py site
+      - name: Browser acceptance against deployment package
         run: |
-          python3 -m http.server 5130 --bind 127.0.0.1 &
+          python3 -m http.server 5130 --bind 127.0.0.1 --directory site &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           for attempt in $(seq 1 30); do
