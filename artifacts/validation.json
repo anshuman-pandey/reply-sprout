@@ -28,5 +28,29 @@
   ],
   "competitor_reference": "https://textexpander.com/learn/using/snippets/snippet-fill-ins",
   "name_check": "Quoted GitHub snippet-cabinet search returned no results; broader name review pending",
-  "next_action": "Publish independent repo when accessible, verify hosted HTTPS deployment, then execute support-pack walkthrough distribution."
+  "next_action": "Publish independent repo when accessible, verify hosted HTTPS deployment, then execute support-pack walkthrough distribution.",
+  "current_audit": {
+    "checked_at": "2026-11-26T13:36:59.571702+00:00",
+    "source_head": "16861ba705343349cb389d35e4801fed51dc0dad",
+    "source_publication": "https://github.com/anshuman-pandey/reply-sprout",
+    "source_public": true,
+    "ci": {
+      "conclusion": "success",
+      "headSha": "16861ba705343349cb389d35e4801fed51dc0dad",
+      "status": "completed",
+      "url": "https://github.com/anshuman-pandey/reply-sprout/actions/runs/43703043041"
+    },
+    "local_core_check": {
+      "exit": 0,
+      "summary": "✔ variables deduplicate and replace literal values without executing markup (1.714914ms)\n✔ missing and inherited variable values are rejected (0.537645ms)\n✔ invalid variable syntax is rejected (0.335489ms)\n✔ imports validate every item before returning (0.621832ms)\n✔ duplicate IDs and oversize backups are rejected (8.081099ms)\n✔ merge deduplicates identical records and rejects conflicting versions (0.300884ms)\n✔ search combines words with collection filter (0.713129ms)\n✔ stale drafts cannot overwrite newer saved revisions (11.05416ms)\n✔ quota failure does not mutate previous library (3.294162ms)\n✔ corrupt storage requires explicit recovery and exact raw comparison (1.164546ms)\n✔ unsupported locking refuses unsafe writes (1.115097ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 183.25258\n"
+    },
+    "release_urls": [],
+    "hosted_demo_url": null,
+    "remaining_gates": [
+      "hosted HTTPS static deployment",
+      "Firefox and Safari",
+      "physical mobile input"
+    ],
+    "note": "Historical validation below is retained as dated evidence. Source publication does not establish a hosted deployment."
+  }
 }
